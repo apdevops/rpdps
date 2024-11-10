@@ -1,0 +1,41 @@
+Test Case Design
+
+Objective: Design a comprehensive suite of test cases for the /login endpoint that considers various scenarios, including positive, negative, edge cases, and invalid inputs.
+Positive Test Cases:
+
+    Valid Credentials:
+        Input: Valid username and password.
+        Expected Result: 200 OK status code, valid token in response body, expected response time, correct headers, and cookies (if any).
+
+Negative Test Cases:
+
+    Invalid Username:
+        Input: Invalid username with a valid password.
+        Expected Result: 401 Unauthorized status code, error message indicating invalid credentials.
+
+    Invalid Password:
+        Input: Valid username with an invalid password.
+        Expected Result: 401 Unauthorized status code, error message indicating invalid credentials.
+
+    Both Username and Password Invalid:
+        Input: Invalid username and password.
+        Expected Result: 401 Unauthorized status code, error message indicating invalid credentials.
+
+    Missing Username or Password:
+        Input: Empty username or password.
+        Expected Result: 400 Bad Request status code, error message indicating Bad Request with the message "Username and password are required..
+
+Edge Cases:
+
+    Empty Body:
+        Input: Completely empty request body.
+        Expected Result: 400 Bad Request, error indicating required fields.
+
+    Long Strings in Username or Password:
+        Input: Excessively long username or password beyond expected limits.
+        Expected Result: 400 Bad Request or 422 Unprocessable Entity.
+
+    Special Characters in Username or Password:
+        Input: Special characters (e.g., username = admin$%, password = pass@123).
+        Expected Result: Status and error message, depending on endpoint handling.
+
